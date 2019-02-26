@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Risk Assessment for Aircraft Overrun Prevention System</title>
+  <meta name="description" content="This tool" />
+  <meta id="meta" name="viewport" content="width=device-width; initial-scale=1.0" />
+  <link rel="stylesheet" href="default.css" type="text/css" />
+</head>
+<body>
+  <div id="outer_wrapper_bottom">
+	<div id="outer_wrapper">
+	  <div id="form">                         
+		<br /><br />
+		<h1 class="bold">
+			Risk Assessment for Aircraft Overrun Prevention System
+		</h1><br />
+		<p>This tool implements Fault Tree Analysis for probablistic risk assessment of Aircraft Runway Overrun Prevention System.</p>
+		<p>Kindly select appropriate fault entity corrosponding to a particular system and edit occurance of any failure events associated to change their probabilities. (Default probablity of all events is 1 in 10 i.e. 0.1. This can extended upto 1 in a billion)</p>
+		
+		<div> <!-- Runway Data -->
+			<br />
+			<p><h2 class="bold">1. Outdated/Invalid/No data about Runway Length</h2></p>
+			<p>
+				<table style="text-align:center">
+					<tr>
+						<th style="text-align:left">Fault Base Events</th>
+						<th>Fault Occurences</th>
+						<th></th>
+						<th>Total execution occurances</th>
+						<th>Probability</th>
+					</tr>
+					<tr>
+						<td style="text-align:left">Remote host with runway data is down or unreachable</td>
+						<td><input id="f_norundata" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="1"/></td>
+						<td>in</td>
+						<td><input id="t_norundata" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="10"/></td>
+						<td><label id="pr_norundata">0.1</label></td>
+					</tr>
+					<tr>
+						<td style="text-align:left">Outdated data from remote host</td>
+						<td><input id="f_oldrundata" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="1"/></td>
+						<td>in</td>
+						<td><input id="t_oldrundata" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="10"/></td>
+						<td><label id="pr_oldrundata">0.1</label></td>
+					</tr>
+				</table>
+			</p>
+		</div> <!-- Runway Data -->
+		
+		<div> <!-- Env Data -->
+			<br />
+			<p><h2 class="bold">2. Outdated/Invalid/No Enviroment data like wind speed, runway contamination etc.</h2></p>
+			<p>
+				<table style="text-align:center">
+					<tr>
+						<th style="text-align:left">Fault Base Events</th>
+						<th>Fault Occurences</th>
+						<th></th>
+						<th>Total execution occurances</th>
+						<th>Probability</th>
+					</tr>
+					<tr>
+						<td style="text-align:left">Ground Communication system is down or unreachable</td>
+						<td><input id="f_noenvdata" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="1"/></td>
+						<td>in</td>
+						<td><input id="t_noenvdata" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="10"/></td>
+						<td><label id="pr_noenvdata">0.1</label></td>
+					</tr>
+					<tr>
+						<td style="text-align:left">Outdated or Incorrect data from ground units</td>
+						<td><input id="f_oldenvdata" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="1"/></td>
+						<td>in</td>
+						<td><input id="t_oldenvdata" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="10"/></td>
+						<td><label id="pr_oldenvdata">0.1</label></td>
+					</tr>
+				</table>
+			</p>
+		</div> <!-- Env Data -->
+		
+		<div> <!-- Airplane Data -->
+			<br />
+			<p><h2 class="bold">3. Outdated/Invalid/No Airplane data like weight, engine type etc.</h2></p>
+			<p>
+				<span class="selection"><b>Fault Conditions:</b></span><br /><br>
+				<span class="selection" ><label class="float_label role">No Access to Data Storage?</label><input id="chk_airdata_store" type="checkbox" onclick="update_conf(this)"></span><br>
+			</p>
+			<p>
+				<table style="text-align:center">
+					<tr>
+						<th style="text-align:left">Fault Base Events</th>
+						<th>Fault Occurences</th>
+						<th></th>
+						<th>Total execution occurances</th>
+						<th>Probability</th>
+					</tr>
+					<tr>
+						<td style="text-align:left">Data not fed into system (Manually/Other System)</td>
+						<td><input id="f_noairdata" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="1"/></td>
+						<td>in</td>
+						<td><input id="t_noairdata" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="10"/></td>
+						<td><label id="pr_noairdata">0.1</label></td>
+					</tr>
+				</table>
+			</p>
+		</div> <!-- Airplane Data -->
+		
+		
+		
+		
+		
+		<div> <!-- Sensor Data -->
+			<br />
+			<p><h2 class="bold">4. Outdated/Invalid/No Sensor data about flight configuration like air speed, flap configuration, air position etc.</h2></p>
+			<p>
+				<span class="selection"><b>Fault Conditions:</b></span><br /><br>
+				<span class="selection" ><label class="float_label role">No Access to Data Storage?</label><input id="chk_sensordata_store" type="checkbox" onclick="update_conf(this)"></span><br>
+			</p>
+			<p>
+				<table style="text-align:center">
+					<tr>
+						<th style="text-align:left">Fault Base Events</th>
+						<th>Fault Occurences</th>
+						<th></th>
+						<th>Total execution occurances</th>
+						<th>Probability</th>
+					</tr>
+					<tr>
+						<td style="text-align:left">Anomaly with sensors</td>
+						<td><input id="f_nosensordata" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="1"/></td>
+						<td>in</td>
+						<td><input id="t_nosensordata" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="10"/></td>
+						<td><label id="pr_nosensordata">0.1</label></td>
+					</tr>
+				</table>
+			</p>
+		</div> <!-- Sensor Data -->
+		
+		<div> <!-- DoS -->
+			<br />
+			<p><h2 class="bold">5. Denial of Service attack on Main system to overwhelm the resources</h2></p>
+			<p>
+				<span class="selection"><b>Fault Conditions:</b></span><br /><br>
+				<span class="selection" ><label class="float_label role">System Network has access to public/internet gateway?</label><input id="chk_dos_mainntw" type="checkbox" onclick="update_conf(this)"></span><br>
+				<span class="selection" style="visibility:hidden" id="dos_fire"><label class="float_label role">Improper Firewall Restrictions?</label><input id="chk_dos_fire" type="checkbox" onclick="update_conf(this)"></span><br>
+			</p>
+			<p>
+				<table style="text-align:center">
+					<tr>
+						<th style="text-align:left">Fault Base Events</th>
+						<th>Fault Occurences</th>
+						<th></th>
+						<th>Total execution occurances</th>
+						<th>Probability</th>
+					</tr>
+					<tr>
+						<td style="text-align:left">No resource monitor to verify resource utilization with expected usage</td>
+						<td><input id="f_noresmon" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="1"/></td>
+						<td>in</td>
+						<td><input id="t_noresmon" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="10"/></td>
+						<td><label id="pr_noresmon">0.1</label></td>
+					</tr>
+				</table>
+			</p>
+		</div> <!-- DoS -->
+		
+		<div> <!-- Malware -->
+			<br />
+			<p><h2 class="bold">6. Malware in System</h2></p>
+			<p>
+				<span class="selection"><b>Fault Conditions:</b></span><br /><br>
+				<span class="selection" ><label class="float_label role">System Network has access to public/internet gateway?</label><input id="chk_mal_mainntw" type="checkbox" onclick="update_conf(this)"></span><br>
+				<span class="selection" style="visibility:hidden" id="mal_fire"><label class="float_label role">Improper Firewall Restrictions?</label><input id="chk_mal_fire" type="checkbox" onclick="update_conf(this)"></span><br>
+			</p>
+			<span class="note">(No Base events for this category, please follow other categories as per the selected entities and conditions)</span>
+		</div> <!-- Malware -->
+		
+		<div> <!-- Backup -->
+			<br />
+			<p><h2 class="bold">7. Failure of backup system</h2></p>
+			<p>
+				<span class="selection"><b>Fault Conditions:</b></span><br /><br>
+				<span class="selection" ><label class="float_label role">Backup system on same network as primary network with no subnetting or firewall restriction ?</label><input id="chk_backup_ntw" type="checkbox" onclick="update_conf(this)"></span><br>
+			</p>
+			<p>
+				<table style="text-align:center">
+					<tr>
+						<th style="text-align:left">Fault Base Events</th>
+						<th>Fault Occurences</th>
+						<th></th>
+						<th>Total execution occurances</th>
+						<th>Probability</th>
+					</tr>
+					<tr>
+						<td style="text-align:left">No Backup System</td>
+						<td><input id="f_nobackup" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="1"/></td>
+						<td>in</td>
+						<td><input id="t_nobackup" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="10"/></td>
+						<td><label id="pr_nobackup">0.1</label></td>
+					</tr>
+					<tr>
+						<td style="text-align:left">Backup System not booted (Not Hot)</td>
+						<td><input id="f_nohot" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="1"/></td>
+						<td>in</td>
+						<td><input id="t_nohot" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="10"/></td>
+						<td><label id="pr_nohot">0.1</label></td>
+					</tr>
+				</table>
+			</p>
+		</div> <!-- Backup -->
+		
+		<div> <!-- Storage -->
+			<br />
+			<p><h2 class="bold">8. Issues with accessing Data Stores</h2></p>
+			<p>
+				<span class="selection"><b>Fault Entity:</b></span><br /><br>
+				<span class="selection" ><label class="float_label role">No Access to Remote Data Storage containing Airplane Data like weight, engine type etc.</label><input id="chk_store_airdata" type="checkbox" onclick="update_conf(this)" disabled=true/></span>
+				<span class="selection" ><label class="float_label role">No Access to Remote Data Storage containing Sensor Data like air speed, flap configuration, air position etc.</label><input id="chk_store_sensordata" type="checkbox" onclick="update_conf(this)" disabled=true/></span>
+			</p>
+			<p>
+				<span class="selection"><b>Fault Conditions:</b></span><br /><br>
+				<span class="selection" ><label class="float_label role">Storage on Network?</label><input id="chk_store_ntw" type="checkbox" onclick="update_conf(this)"></span><br>
+				<span class="selection" style="visibility:hidden" id="store_pub"><label class="float_label role">Network Storage with access to public/internet gateway?</label><input id="chk_store_pub" type="checkbox" onchange="update_conf(this)"/></span>
+				<span class="selection" style="visibility:hidden" id="store_fire"><label class="float_label role">Improper Firewall Restrictions?</label><input id="chk_store_fire" type="checkbox" onclick="update_conf(this)"/></span>
+			</p>
+			<span class="note">No Base events for this category, please follow other categories as per the selected entities and conditions</span>
+		</div> <!-- Storage -->
+		
+		<div> <!-- Firewall -->
+			<br />
+			<p><h2 class="bold">9. Improper Firewall Restrictions</h2></p>
+			<p>
+				<span class="selection"><b>Fault Entity:</b></span><br /><br>
+				<span class="selection" ><label class="float_label role">Firewall issue for Remote Data Storage containing Airplane Data like weight, engine type etc.</label><input id="chk_fire_airdata" type="checkbox" onclick="update_conf(this)" disabled=true/></span>
+				<span class="selection" ><label class="float_label role">Firewall issue for Remote Data Storage containing Sensor Data like air speed, flap configuration, air position etc.</label><input id="chk_fire_sensordata" type="checkbox" onclick="update_conf(this)" disabled=true/></span>
+				<span class="selection" ><label class="float_label role">Firewall issue for Safety System Network</label><input id="chk_fire_mainntw" type="checkbox" onclick="update_conf(this)" disabled=true/></span>
+			</p>
+			<p>
+				<table style="text-align:center">
+					<tr>
+						<th style="text-align:left">Fault Base Events</th>
+						<th>Fault Occurences</th>
+						<th></th>
+						<th>Total execution occurances</th>
+						<th>Probability</th>
+					</tr>
+					<tr>
+						<td style="text-align:left">No Firewall to hide system from Public Network</td>
+						<td><input id="f_nofire" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="1"/></td>
+						<td>in</td>
+						<td><input id="t_nofire" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="10"/></td>
+						<td><label id="pr_nofire">0.1</label></td>
+					</tr>
+					<tr>
+						<td style="text-align:left">No MAC/IP restriction to access local network from Public gateway</td>
+						<td><input id="f_nomac" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="1"/></td>
+						<td>in</td>
+						<td><input id="t_nomac" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="10"/></td>
+						<td><label id="pr_nomac">0.1</label></td>
+					</tr>
+					<tr>
+						<td style="text-align:left">MAC/IP restriction data corrupt or not accessible</td>
+						<td><input id="f_crmac" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="1"/></td>
+						<td>in</td>
+						<td><input id="t_crmac" type="text" onkeydown="capture_val(event,this)" onkeyup="calc_probability(this)" value="10"/></td>
+						<td><label id="pr_crmac">0.1</label></td>
+					</tr>
+				</table>
+			</p>
+		</div> <!-- Firewall -->
+		<br /><hr />
+		<p><center><button onclick="calc_prob()">Calculate Probability</button></center></p><hr />
+		<p id="res"></p>
+	  </div>
+	</div>
+  </div>
+</body>
+<script type="text/javascript" src="jscript.js"></script>
+
+</html>
