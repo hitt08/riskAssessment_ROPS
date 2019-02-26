@@ -1,8 +1,12 @@
+<!--Author : Hitarth Narvala
+			 University of Glasgow (Safety Critical Systems)
+ -->
+ 
 <!DOCTYPE html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Risk Assessment for Aircraft Overrun Prevention System</title>
-  <meta name="description" content="This tool" />
+  <meta name="description" content="Author: Hitarth Narvala" />
   <meta id="meta" name="viewport" content="width=device-width; initial-scale=1.0" />
   <link rel="stylesheet" href="default.css" type="text/css" />
 </head>
@@ -14,8 +18,8 @@
 		<h1 class="bold">
 			Risk Assessment for Aircraft Overrun Prevention System
 		</h1><br />
-		<p>This tool implements Fault Tree Analysis for probablistic risk assessment of Aircraft Runway Overrun Prevention System.</p>
-		<p>Kindly select appropriate fault entity corrosponding to a particular system and edit occurance of any failure events associated to change their probabilities. (Default probablity of all events is 1 in 10 i.e. 0.1. This can extended upto 1 in a billion)</p>
+		<p>This tool implements Fault Tree Analysis for probabilistic risk assessment of Aircraft Runway Overrun Prevention System.</p>
+		<p>Kindly select appropriate fault entity corresponding to a particular system and edit occurrence of any failure events associated to change their probabilities. (Default probability of all events is 1 in 10 i.e. 0.1. This can extended up to 1 in a billion)</p>
 		
 		<div> <!-- Runway Data -->
 			<br />
@@ -24,9 +28,9 @@
 				<table style="text-align:center">
 					<tr>
 						<th style="text-align:left">Fault Base Events</th>
-						<th>Fault Occurences</th>
+						<th>Fault Occurrences</th>
 						<th></th>
-						<th>Total execution occurances</th>
+						<th>Total execution occurrences</th>
 						<th>Probability</th>
 					</tr>
 					<tr>
@@ -49,14 +53,14 @@
 		
 		<div> <!-- Env Data -->
 			<br />
-			<p><h2 class="bold">2. Outdated/Invalid/No Enviroment data like wind speed, runway contamination etc.</h2></p>
+			<p><h2 class="bold">2. Outdated/Invalid/No Environment data like wind speed, runway contamination etc.</h2></p>
 			<p>
 				<table style="text-align:center">
 					<tr>
 						<th style="text-align:left">Fault Base Events</th>
-						<th>Fault Occurences</th>
+						<th>Fault Occurrences</th>
 						<th></th>
-						<th>Total execution occurances</th>
+						<th>Total execution occurrences</th>
 						<th>Probability</th>
 					</tr>
 					<tr>
@@ -88,9 +92,9 @@
 				<table style="text-align:center">
 					<tr>
 						<th style="text-align:left">Fault Base Events</th>
-						<th>Fault Occurences</th>
+						<th>Fault Occurrences</th>
 						<th></th>
-						<th>Total execution occurances</th>
+						<th>Total execution occurrences</th>
 						<th>Probability</th>
 					</tr>
 					<tr>
@@ -119,9 +123,9 @@
 				<table style="text-align:center">
 					<tr>
 						<th style="text-align:left">Fault Base Events</th>
-						<th>Fault Occurences</th>
+						<th>Fault Occurrences</th>
 						<th></th>
-						<th>Total execution occurances</th>
+						<th>Total execution occurrences</th>
 						<th>Probability</th>
 					</tr>
 					<tr>
@@ -147,9 +151,9 @@
 				<table style="text-align:center">
 					<tr>
 						<th style="text-align:left">Fault Base Events</th>
-						<th>Fault Occurences</th>
+						<th>Fault Occurrences</th>
 						<th></th>
-						<th>Total execution occurances</th>
+						<th>Total execution occurrences</th>
 						<th>Probability</th>
 					</tr>
 					<tr>
@@ -165,7 +169,7 @@
 		
 		<div> <!-- Malware -->
 			<br />
-			<p><h2 class="bold">6. Malware in System</h2></p>
+			<p><h2 class="bold">6. Mal-ware in System</h2></p>
 			<p>
 				<span class="selection"><b>Fault Conditions:</b></span><br /><br>
 				<span class="selection" ><label class="float_label role">System Network has access to public/internet gateway?</label><input id="chk_mal_mainntw" type="checkbox" onclick="update_conf(this)"></span><br>
@@ -179,15 +183,15 @@
 			<p><h2 class="bold">7. Failure of backup system</h2></p>
 			<p>
 				<span class="selection"><b>Fault Conditions:</b></span><br /><br>
-				<span class="selection" ><label class="float_label role">Backup system on same network as primary network with no subnetting or firewall restriction ?</label><input id="chk_backup_ntw" type="checkbox" onclick="update_conf(this)"></span><br>
+				<span class="selection" ><label class="float_label role">Backup system on same network as primary network with no sub-netting or firewall restriction ?</label><input id="chk_backup_ntw" type="checkbox" onclick="update_conf(this)"></span><br>
 			</p>
 			<p>
 				<table style="text-align:center">
 					<tr>
 						<th style="text-align:left">Fault Base Events</th>
-						<th>Fault Occurences</th>
+						<th>Fault Occurrences</th>
 						<th></th>
-						<th>Total execution occurances</th>
+						<th>Total execution occurrences</th>
 						<th>Probability</th>
 					</tr>
 					<tr>
@@ -238,9 +242,9 @@
 				<table style="text-align:center">
 					<tr>
 						<th style="text-align:left">Fault Base Events</th>
-						<th>Fault Occurences</th>
+						<th>Fault Occurrences</th>
 						<th></th>
-						<th>Total execution occurances</th>
+						<th>Total execution occurrences</th>
 						<th>Probability</th>
 					</tr>
 					<tr>
@@ -270,6 +274,7 @@
 		<br /><hr />
 		<p><center><button onclick="calc_prob()">Calculate Probability</button></center></p><hr />
 		<p id="res"></p>
+		<span class="note">-Hitarth Narvala</span>
 	  </div>
 	</div>
   </div>

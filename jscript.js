@@ -159,13 +159,13 @@ function update_conf(elm) {
 	res+="<tr><td>Probability of Inaccurate Calculations  of Environment Data</td><td>=</td><td>"+ prob_env +"</td></tr>";
 	res+="<tr><td>Probability of Inaccurate Calculations  of Airplane Data</td><td>=</td><td>"+ prob_air +"</td></tr>";
 	res+="<tr><td>Probability of Inaccurate Calculations  of Sensor Data</td><td>=</td><td>"+ prob_sensor +"</td></tr>";
-	res+="<tr><td>Probability of Malware in System</td><td>=</td><td>"+ prob_malware +"</td></tr>";
+	res+="<tr><td>Probability of Mal-ware in System</td><td>=</td><td>"+ prob_malware +"</td></tr>";
 	res+="<tr><td>Probability of Denial of Service attack in System</td><td>=</td><td>"+ prob_dos +"</td></tr>";
 	res+="<tr><td>Probability of Storage Issue with Airplane Data</td><td>=</td><td>"+ (bool_to_int(entities["chk_airdata_store"]) * prob_store) +"</td></tr>";
 	res+="<tr><td>Probability of Storage Issue with Sensor Data</td><td>=</td><td>"+ (bool_to_int(entities["chk_sensordata_store"]) * prob_store) +"</td></tr>";
 	res+="<tr><td>Probability of Firewall Issue with Remote Data Storage of Airplane Data</td><td>=</td><td>"+ (bool_to_int(entities["chk_airdata_store"] && entities["chk_store_fire"]) * prob_store) +"</td></tr>";
 	res+="<tr><td>Probability of Firewall Issue with Remote Data Storage of Sensor Data</td><td>=</td><td>"+ (bool_to_int(entities["chk_sensordata_store"] && entities["chk_store_fire"]) * prob_store) +"</td></tr>";
 	res+="<tr><td>Probability of Firewall Issue with System Network</td><td>=</td><td>"+ (bool_to_int(entities["chk_fire_mainntw"]) * prob_fire) +"</td></tr>";
-	res+="</table></div>"
+	res+="</table></div><hr />"
 	document.getElementById("res").innerHTML=res;
  }
